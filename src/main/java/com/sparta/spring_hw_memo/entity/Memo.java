@@ -1,20 +1,21 @@
 package com.sparta.spring_hw_memo.entity;
 
-
 import com.sparta.spring_hw_memo.dto.MemoRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @Entity
 @ToString
 @NoArgsConstructor
 public class Memo extends Timestamped {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -29,21 +30,19 @@ public class Memo extends Timestamped {
     @Column(nullable = false)
     private String contents;
 
-    public Memo(String username, String title, String password, String contents){
-        this.username = username;
-        this.title = title;
-        this.password = password;
-        this.contents = contents;
-    }
+    @Column(nullable = false)
+    private Long userId;
+    
 
-
-    public Memo(MemoRequestDto requestDto) {
+    public Memo(MemoRequestDto requestDto, Long userId) {
         this.username = requestDto.getUsername();
         this.title = requestDto.getTitle();
         this.password = requestDto.getPassword();
         this.contents = requestDto.getContents();
+        this.userId = userId;
 
     }
+
     public void update(MemoRequestDto memoRequestDto) {
         this.username = memoRequestDto.getUsername();
         this.contents = memoRequestDto.getContents();
