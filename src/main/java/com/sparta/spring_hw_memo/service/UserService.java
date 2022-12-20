@@ -26,14 +26,14 @@ public class UserService {
     public void signup(SignupRequestDto signupRequestDto) {
         String username = signupRequestDto.getUsername();
         String password = signupRequestDto.getPassword();
-        String email = signupRequestDto.getEmail();
+
 
         // 회원 중복 확인
         Optional<User> found = userRepository.findByUsername(username);
         if (found.isPresent()) {
             throw new IllegalArgumentException("중복된 사용자가 존재합니다.");
         }
-
+        String email = signupRequestDto.getEmail();
         // 사용자 ROLE 확인
         UserRoleEnum role = UserRoleEnum.USER;
         if (signupRequestDto.isAdmin()) {

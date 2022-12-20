@@ -28,6 +28,7 @@ public class MemoController {
 //        this.memoService =  memoService;
 //    }
 
+    @ResponseBody
     // 메모 등록하기
     @PostMapping("/memos")
     public MemoResponseDto createMemo(@RequestBody MemoRequestDto requestDto, HttpServletRequest request) {

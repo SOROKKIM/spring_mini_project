@@ -65,9 +65,7 @@ public class MemoService {
             if (jwtUtil.validateToken(token)) {
                 // 토큰에서 사용자 정보 가져오기
                 claims = jwtUtil.getUserInfoFromToken(token);
-            } else {
-                throw new IllegalArgumentException("Token Error");
-            }
+            } else throw new IllegalArgumentException("Token Error");
 
             // 토큰에서 가져온 사용자 정보를 사용하여 DB 조회
             User user = userRepository.findByUsername(claims.getSubject()).orElseThrow(

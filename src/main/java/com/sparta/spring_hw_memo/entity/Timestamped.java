@@ -21,7 +21,7 @@ public class Timestamped {
     //private String createdAt = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
 
     @LastModifiedDate
-    //private LocalDateTime modifiedAt;
-    private String modifiedAt = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+    private LocalDateTime modifiedAt;
+//    private String modifiedAt = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
 
 }

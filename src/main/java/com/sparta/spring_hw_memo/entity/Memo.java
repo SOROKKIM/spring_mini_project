@@ -19,32 +19,23 @@ public class Memo extends Timestamped {
     private Long id;
 
     @Column(nullable = false)
-    private String username;
-
-    @Column(nullable = false)
     private String title;
-
-    @Column(nullable = false)
-    private String password;
 
     @Column(nullable = false)
     private String contents;
 
     @Column(nullable = false)
     private Long userId;
-    
 
     public Memo(MemoRequestDto requestDto, Long userId) {
-        this.username = requestDto.getUsername();
+        this.id = requestDto.getId();
         this.title = requestDto.getTitle();
-        this.password = requestDto.getPassword();
         this.contents = requestDto.getContents();
         this.userId = userId;
-
     }
 
     public void update(MemoRequestDto memoRequestDto) {
-        this.username = memoRequestDto.getUsername();
+        this.title = memoRequestDto.getTitle();
         this.contents = memoRequestDto.getContents();
     }
 
