@@ -25,13 +25,18 @@ public class Memo extends Timestamped {
     private String contents;
 
     @Column(nullable = false)
-    private Long userId;
+    private String username;
 
-    public Memo(MemoRequestDto requestDto, Long userId) {
-        this.id = requestDto.getId();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Memo(MemoRequestDto requestDto, User user) {
+//        this.id = requestDto.getId();
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
-        this.userId = userId;
+        this.username = user.getUsername();
+        this.user = user;
     }
 
     public void update(MemoRequestDto memoRequestDto) {

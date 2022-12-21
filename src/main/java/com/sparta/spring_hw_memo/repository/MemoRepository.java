@@ -13,4 +13,6 @@ public interface MemoRepository extends JpaRepository<Memo, Long> {
     Optional<Memo> findByIdAndUserId(Long id, Long userId);
 
     List<Memo> findAllByUserId(Long userId);
+
+    List<Memo> findAllByOrderByCreatedAtDesc();
 }

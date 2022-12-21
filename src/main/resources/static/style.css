@@ -72,6 +72,43 @@
     margin-left: 10px;
 }
 
+.footer {
+    position: relative;
+    height: 40px;
+}
+
+.footer img.icon-start-edit {
+    cursor: pointer;
+    position: absolute;
+    bottom: 14px;
+    right: 55px;
+    width: 18px;
+    height: 18px;
+}
+
+.footer img.icon-end-edit {
+    cursor: pointer;
+    position: absolute;
+    display: none;
+    bottom: 14px;
+    right: 55px;
+    width: 20px;
+    height: 15px;
+}
+
+.footer img.icon-delete {
+    cursor: pointer;
+    position: absolute;
+    bottom: 12px;
+    right: 19px;
+    width: 14px;
+    height: 18px;
+}
+
+/*#cards-box {*/
+/*    margin-top: 12px;*/
+/*}*/
+
 body {
     margin: 0px;
 }

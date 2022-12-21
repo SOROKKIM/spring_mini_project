@@ -23,11 +23,6 @@ public class MemoController {
     private final MemoService memoService;
     private final MemoRepository memoRepository;
 
-//    @Autowired
-//    public MController(MemoService memoService) {
-//        this.memoService =  memoService;
-//    }
-
     @ResponseBody
     // 메모 등록하기
     @PostMapping("/memos")
@@ -39,9 +34,14 @@ public class MemoController {
 
     //메모 조회하기
     @GetMapping("/memos")
-    public List<MemoResponseDto> getMemos(HttpServletRequest request) {
+    public List<MemoResponseDto> getMemos() {
 
-        return memoService.getMemos(request);
+        return memoService.getMemos();
+    }
+    @GetMapping("/memos/{id}")
+    public Optional<Memo> getMemo(@PathVariable Long id) {
+
+        return memoService.getMemo(id);
     }
 
     //메모 업데이트
@@ -52,8 +52,8 @@ public class MemoController {
 
     //메모 삭제
     @DeleteMapping("/memos/{id}")
-    public Long deleteMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto, HttpServletRequest request) {
-        return memoService.deleteMemo(id, requestDto, request);
+    public Long deleteMemo(@PathVariable Long id, HttpServletRequest request) {
+        return memoService.deleteMemo(id, request);
     }
 }
 
