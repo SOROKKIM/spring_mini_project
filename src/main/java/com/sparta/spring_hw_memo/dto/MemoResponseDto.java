@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -17,9 +19,12 @@ public class MemoResponseDto {
     private String title;
 //    private String password;
     private String contents;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime modifiedAt;
+
+    private List<CommentResponseDto> comments;
 
     public MemoResponseDto(Memo memo) {
         this.id = memo.getId();
@@ -28,6 +33,8 @@ public class MemoResponseDto {
         this.contents = memo.getContents();
         this.createdAt = memo.getCreatedAt();
         this.modifiedAt = memo.getModifiedAt();
+        this.comments = new ArrayList<>();
+
     }
 
 }
