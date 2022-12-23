@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 public class Timestamped {
 
     @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
     //private String createdAt = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
 
